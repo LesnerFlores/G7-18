@@ -69,6 +69,6 @@ const clienteController = {
     }
 };
 
-export default clienteController;
+
 module.exports = clienteController;
 
