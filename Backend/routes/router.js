@@ -1,21 +1,27 @@
-"use strict";
+'use strict';
 
-var VehiculoController = require("../controllers/vehiculo-controller"),
+var RESERVASController = require("../controllers/RESERVAS-controller"),
     express = require("express"),
     router = express.Router();
 
+// Rutas para las reservas
 router
-    // Obtener todos los vehículos
-    .get("/vehiculo/TodoslosVehiculos", VehiculoController.getAll)
-    // Insertar un nuevo vehículo
-    .post("/vehiculo/InsertarVehiculo", VehiculoController.post)
-    // Eliminar un vehículo por su ID
-    .delete("/vehiculo/EliminarVehiculo", VehiculoController.delete)
-    // Obtener un vehículo por su ID (POST)
-    .post("/vehiculo/buscarporId", VehiculoController.getById)
-    // Actualizar un vehículo por su ID (PUT)
-    .put("/vehiculo/actualizarVehiculo", VehiculoController.update)
-    // Manejo de errores 404
-    .use(VehiculoController.error404);
+  // Obtener todas las reservas
+  .get("/RESERVA/TodaslasReservas", RESERVASController.getAll)
+  
+  // Insertar una nueva reserva
+  .post("/RESERVA/InsertarReserva", RESERVASController.post)
+  
+  // Eliminar una reserva
+  .delete("/RESERVA/EliminarReserva", RESERVASController.delete)
+  
+  // Ruta para obtener una reserva por su ID (POST)
+  .post("/RESERVA/buscarporId", RESERVASController.getById)
+  
+  // Ruta para actualizar una reserva por su ID (PUT)
+  .put("/RESERVA/actualizarReserva", RESERVASController.update)
+  
+  // Manejo de error 404 para rutas no encontradas
+  .use(RESERVASController.error404);
 
 module.exports = router;
